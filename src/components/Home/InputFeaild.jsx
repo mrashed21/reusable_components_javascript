@@ -8,7 +8,7 @@ const InputFeild = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: "onChange" });
 
   const handleSubmitData = (data) => {
     console.log(data);

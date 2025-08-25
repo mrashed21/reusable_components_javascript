@@ -1,6 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import InputNumber from "../Reusable/InputNumber/InputNumber";
 import InputText from "../Reusable/InputText/InputText";
 
 const InputFeild = () => {
@@ -11,7 +12,7 @@ const InputFeild = () => {
   } = useForm({ mode: "onChange" });
 
   const handleSubmitData = (data) => {
-    console.log(data);
+    console.log("Form Data:", data);
   };
 
   return (
@@ -30,6 +31,7 @@ const InputFeild = () => {
           }}
           error={errors.user_frist_name}
         />
+
         <InputText
           register={register}
           name="user_last_name"
@@ -42,6 +44,22 @@ const InputFeild = () => {
             },
           }}
           error={errors.user_last_name}
+        />
+
+        <InputNumber
+          register={register}
+          name="product_price"
+          lable="Product Price"
+          validation={{
+            required: "Product Price is required.",
+            pattern: {
+              value: /^(0*[1-9]\d*(\.\d+)?|0*\.\d+)$/,
+              message: "Price must be a valid number",
+            },
+            validate: (v) =>
+              parseFloat(v) > 0 || "Price must be greater than 0", 
+          }}
+          error={errors.product_price}
         />
 
         <button

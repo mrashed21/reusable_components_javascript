@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import InputNumber from "../Reusable/InputNumber/InputNumber";
+import InputPassword from "../Reusable/InputPassowrd/InputPassword";
 import InputText from "../Reusable/InputText/InputText";
 
 const InputFeild = () => {
@@ -45,23 +46,8 @@ const InputFeild = () => {
           }}
           error={errors.user_last_name}
         />
-        {/* 
+
         <InputNumber
-          register={register}
-          name="product_price"
-          lable="Product Price"
-          validation={{
-            required: "Product Price is required.",
-            pattern: {
-              value: /^(0*[1-9]\d*(\.\d+)?|0*\.\d+)$/,
-              message: "Price must be a valid number",
-            },
-            validate: (v) =>
-              parseFloat(v) > 0 || "Price must be greater than 0", 
-          }}
-          error={errors.product_price}
-        /> */}
-  <InputNumber
           register={register}
           name="product_price"
           lable="Product Price"
@@ -75,6 +61,29 @@ const InputFeild = () => {
             },
           }}
           error={errors.product_price}
+        />
+
+        <InputPassword
+          register={register}
+          name="user_password"
+          lable="Password"
+          validation={{
+            required: "Password is required.",
+            validate: {
+              minLength: (v) =>
+                v.length >= 8 || "Password must be at least 8 characters",
+              hasUpper: (v) =>
+                /[A-Z]/.test(v) || "Must contain at least 1 uppercase letter",
+              hasLower: (v) =>
+                /[a-z]/.test(v) || "Must contain at least 1 lowercase letter",
+              hasNumber: (v) =>
+                /\d/.test(v) || "Must contain at least 1 number",
+              hasSpecial: (v) =>
+                /[@$!%*?&]/.test(v) ||
+                "Must contain at least 1 special character",
+            },
+          }}
+          error={errors.user_password}
         />
 
         <button

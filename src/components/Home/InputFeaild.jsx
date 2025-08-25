@@ -45,7 +45,7 @@ const InputFeild = () => {
           }}
           error={errors.user_last_name}
         />
-
+        {/* 
         <InputNumber
           register={register}
           name="product_price"
@@ -58,6 +58,21 @@ const InputFeild = () => {
             },
             validate: (v) =>
               parseFloat(v) > 0 || "Price must be greater than 0", 
+          }}
+          error={errors.product_price}
+        /> */}
+  <InputNumber
+          register={register}
+          name="product_price"
+          lable="Product Price"
+          validation={{
+            required: "Product Price is required.",
+            setValueAs: (v) => (v === "" ? undefined : Number(v)),
+            validate: (v) => {
+              if (isNaN(v)) return "Price must be a valid number";
+              if (v <= 0) return "Price must be greater than 0";
+              return true;
+            },
           }}
           error={errors.product_price}
         />

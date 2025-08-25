@@ -10,7 +10,7 @@ const InputNumber = ({
     <div className="flex flex-col space-y-1">
       <label htmlFor={name}>{lable}</label>
       <input
-        type="text" 
+        type="text"
         {...register(name, {
           ...validation,
         })}

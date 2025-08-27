@@ -19,6 +19,7 @@ const InputFeild = () => {
   return (
     <section className="mt-20">
       <form onSubmit={handleSubmit(handleSubmitData)}>
+        {/* textinput */}
         <InputText
           register={register}
           name="user_frist_name"
@@ -46,7 +47,7 @@ const InputFeild = () => {
           }}
           error={errors.user_last_name}
         />
-
+        {/* numberinput */}
         <InputNumber
           register={register}
           name="product_price"
@@ -62,7 +63,7 @@ const InputFeild = () => {
           }}
           error={errors.product_price}
         />
-
+        {/* passwordinput */}
         <InputPassword
           register={register}
           name="user_password"

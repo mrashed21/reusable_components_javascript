@@ -8,6 +8,7 @@ const InputPassword = ({
   name,
   lable,
   classname,
+  placeholder,
   validation,
   error,
 }) => {
@@ -21,6 +22,7 @@ const InputPassword = ({
           type={showPassword ? "text" : "password"}
           {...register(name, validation)}
           id={name}
+          placeholder={placeholder}
           className={`border border-gray-200 rounded focus:outline-none p-2 pr-10 w-full ${classname} ${
             error ? "border-red-500" : ""
           }`}

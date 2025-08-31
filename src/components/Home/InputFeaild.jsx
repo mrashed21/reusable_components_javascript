@@ -15,6 +15,8 @@ const InputFeild = () => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
+  const [phoneValue, setPhoneValue] = useState("+8801781131905");
+
   const handleSubmitData = (data) => {
     console.log("Form Data:", data);
   };
@@ -27,6 +29,7 @@ const InputFeild = () => {
           register={register}
           name="user_frist_name"
           lable="First Name"
+          placeholder="Enter Your Frist Name"
           validation={{
             required: "First name is required.",
             pattern: {
@@ -41,6 +44,7 @@ const InputFeild = () => {
           register={register}
           name="user_last_name"
           lable="Last Name"
+          placeholder="Enter Your Last Name"
           validation={{
             required: "Last name is required.",
             pattern: {
@@ -56,6 +60,7 @@ const InputFeild = () => {
           register={register}
           name="product_price"
           lable="Product Price"
+          placeholder="Enter Product Price"
           validation={{
             required: "Product Price is required.",
             setValueAs: (v) => (v === "" ? undefined : Number(v)),
@@ -74,6 +79,9 @@ const InputFeild = () => {
           register={register}
           name="user_phone"
           setValue={setValue}
+          phoneValue={phoneValue}
+          setPhoneValue={setPhoneValue}
+          placeholder="Enter Your Phone Number"
           validation={{
             required: "Phone number is required.",
           }}
@@ -85,6 +93,7 @@ const InputFeild = () => {
           register={register}
           name="user_password"
           lable="Password"
+          placeholder="Enter your Password"
           validation={{
             required: "Password is required.",
             validate: {

@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import PhoneInput, {
   isPossiblePhoneNumber,
   isValidPhoneNumber,
@@ -11,11 +10,12 @@ const ReactPhoneInput = ({
   register,
   name,
   setValue,
+  phoneValue,
+  setPhoneValue,
+  placeholder,
   validation,
   error,
 }) => {
-  const [phoneValue, setPhoneValue] = useState("");
-
   const handlePhoneChange = (value) => {
     setPhoneValue(value || "");
     setValue(name, value || "", {
@@ -36,7 +36,7 @@ const ReactPhoneInput = ({
           validate: {
             ...validation?.validate,
             isValid: (value) => {
-              if (!value) return true; 
+              if (!value) return true;
               if (!isValidPhoneNumber(value)) return "Invalid phone number";
               if (!isPossiblePhoneNumber(value))
                 return "Invalid phone number format";
@@ -48,7 +48,7 @@ const ReactPhoneInput = ({
 
       <PhoneInput
         className="w-full rounded-md border border-gray-200 bg-white px-2 py-1 text-black focus:outline-0"
-        placeholder="Enter phone number"
+        placeholder={placeholder}
         id={name}
         value={phoneValue}
         defaultCountry="BD"

@@ -2,6 +2,7 @@ const InputNumber = ({
   register,
   name,
   lable,
+    placeholder,
   classname,
   validation,
   error,
@@ -15,6 +16,7 @@ const InputNumber = ({
           ...validation,
         })}
         id={name}
+        placeholder={placeholder}
         className={`border border-gray-200 rounded focus:outline-none p-2 ${classname} ${
           error ? "border-red-500" : ""
         }`}

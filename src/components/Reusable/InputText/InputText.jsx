@@ -1,4 +1,4 @@
-const InputText = ({ register, name, lable, classname, validation, error }) => {
+const InputText = ({ register, name, lable, classname,placeholder, validation, error }) => {
   return (
     <div className="flex flex-col space-y-1">
       <label htmlFor={name}>{lable}</label>
@@ -6,6 +6,7 @@ const InputText = ({ register, name, lable, classname, validation, error }) => {
         // Pass the validation rules here
         {...register(name, validation)}
         id={name}
+        placeholder={placeholder}
         className={`border border-gray-200 rounded focus:outline-none p-2 ${classname} ${
           error ? "border-red-500" : ""
         }`}

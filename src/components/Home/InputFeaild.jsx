@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import InputNumber from "../Reusable/InputNumber/InputNumber";
 import InputPassword from "../Reusable/InputPassowrd/InputPassword";
@@ -12,17 +12,18 @@ const InputFeild = () => {
     register,
     handleSubmit,
     setValue,
+    getValues,
     formState: { errors },
-  } = useForm({ mode: "onChange" });
+  } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      user_phone: "+8801781131905",
+      user_first_name: "Rashed",
+      user_last_name: "Jaman",
+    },
+  });
 
-  const [phoneValue, setPhoneValue] = useState("+8801781131905");
-
-  useEffect(() => {
-    setValue("user_frist_name", "Rashed");
-    setValue("user_last_name", "Jaman");
-  }, [setValue]);
-
-  //  setValue("user_frist_name", "Rashed");
+  const [phoneValue, setPhoneValue] = useState(getValues("user_phone"));
 
   const handleSubmitData = (data) => {
     console.log("Form Data:", data);
@@ -34,9 +35,9 @@ const InputFeild = () => {
         {/* textinput */}
         <InputText
           register={register}
-          name="user_frist_name"
+          name="user_first_name"
           lable="First Name"
-          placeholder="Enter Your Frist Name"
+          placeholder="Enter Your First Name"
           validation={{
             required: "First name is required.",
             pattern: {
@@ -44,7 +45,7 @@ const InputFeild = () => {
               message: "Invalid first name.",
             },
           }}
-          error={errors.user_frist_name}
+          error={errors.user_first_name}
         />
 
         <InputText

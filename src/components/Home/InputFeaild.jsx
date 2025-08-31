@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import InputNumber from "../Reusable/InputNumber/InputNumber";
 import InputPassword from "../Reusable/InputPassowrd/InputPassword";
@@ -16,6 +16,13 @@ const InputFeild = () => {
   } = useForm({ mode: "onChange" });
 
   const [phoneValue, setPhoneValue] = useState("+8801781131905");
+
+  useEffect(() => {
+    setValue("user_frist_name", "Rashed");
+    setValue("user_last_name", "Jaman");
+  }, [setValue]);
+
+  //  setValue("user_frist_name", "Rashed");
 
   const handleSubmitData = (data) => {
     console.log("Form Data:", data);

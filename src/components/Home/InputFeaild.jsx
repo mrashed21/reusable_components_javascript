@@ -1,14 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import InputNumber from "../Reusable/InputNumber/InputNumber";
 import InputPassword from "../Reusable/InputPassowrd/InputPassword";
 import InputText from "../Reusable/InputText/InputText";
+import ReactPhoneInput from "../Reusable/ReactPhoneInput/ReactPhoneInput";
 
 const InputFeild = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
@@ -47,6 +50,7 @@ const InputFeild = () => {
           }}
           error={errors.user_last_name}
         />
+
         {/* numberinput */}
         <InputNumber
           register={register}
@@ -63,6 +67,19 @@ const InputFeild = () => {
           }}
           error={errors.product_price}
         />
+
+        {/* Phone input with real-time validation */}
+        <ReactPhoneInput
+          label="Phone Number"
+          register={register}
+          name="user_phone"
+          setValue={setValue}
+          validation={{
+            required: "Phone number is required.",
+          }}
+          error={errors.user_phone}
+        />
+
         {/* passwordinput */}
         <InputPassword
           register={register}

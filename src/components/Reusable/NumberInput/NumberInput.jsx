@@ -1,8 +1,8 @@
-const InputNumber = ({
+const NumberInput = ({
   register,
   name,
   lable,
-    placeholder,
+  placeholder,
   classname,
   validation,
   error,
@@ -26,4 +26,4 @@ const InputNumber = ({
   );
 };
 
-export default InputNumber;
+export default NumberInput;

@@ -1,4 +1,12 @@
-const InputText = ({ register, name, lable, classname,placeholder, validation, error }) => {
+const TextInput = ({
+  register,
+  name,
+  lable,
+  classname,
+  placeholder,
+  validation,
+  error,
+}) => {
   return (
     <div className="flex flex-col space-y-1">
       <label htmlFor={name}>{lable}</label>
@@ -17,4 +25,4 @@ const InputText = ({ register, name, lable, classname,placeholder, validation, e
   );
 };
 
-export default InputText;
+export default TextInput;

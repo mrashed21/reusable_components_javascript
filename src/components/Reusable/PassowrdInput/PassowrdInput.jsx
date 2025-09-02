@@ -3,7 +3,7 @@ import { useState } from "react";
 import { LuEyeOff } from "react-icons/lu";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 
-const InputPassword = ({
+const PasswordInput = ({
   register,
   name,
   lable,
@@ -57,4 +57,4 @@ const InputPassword = ({
   );
 };
 
-export default InputPassword;
+export default PasswordInput;

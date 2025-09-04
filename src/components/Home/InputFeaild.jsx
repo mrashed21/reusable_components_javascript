@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import ReactPhoneInput from "../Reusable/ReactPhoneInput/ReactPhoneInput";
-import TextInput from "../Reusable/TextInput/TextInput";
 import NumberInput from "../Reusable/NumberInput/NumberInput";
 import PasswordInput from "../Reusable/PassowrdInput/PassowrdInput";
+import ReactPhoneInput from "../Reusable/ReactPhoneInput/ReactPhoneInput";
+import TextInput from "../Reusable/TextInput/TextInput";
 
 const InputFeild = () => {
   const {
@@ -121,14 +121,13 @@ const InputFeild = () => {
           }}
           error={errors.user_password}
         />
-{/* submit button */}
+        {/* submit button */}
         <button
           type="submit"
           className="cursor-pointer py-2 px-5 rounded border border-gray-200 mt-5"
         >
           Submit
         </button>
-
       </form>
     </section>
   );

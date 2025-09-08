@@ -11,7 +11,7 @@ const TextInput = ({
     <div className="flex flex-col space-y-1">
       <label htmlFor={name}>{lable}</label>
       <input
-        // Pass the validation rules here
+      
         {...register(name, validation)}
         id={name}
         placeholder={placeholder}
